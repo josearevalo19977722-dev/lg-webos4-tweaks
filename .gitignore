@@ -1,0 +1,5 @@
+.DS_Store
+*.log
+*.ipk
+appLaunch*.js
+preloadmanager-*.json
