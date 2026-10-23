@@ -19,6 +19,13 @@ Medido en un **43UK6300PSB** (webOS 4.4.3, firmware 05.50.70):
 | Apps precargadas | 9 | 0 |
 | Botones del mando | Netflix / Prime Video, fijos | la app que quieras |
 
+![Hearth en un LG de 2018](docs/hearth-home.png)
+
+<sub>Un 43UK6300PSB con [Hearth](https://github.com/rudra-avatar/webos-custom-launcher) en
+lugar de la barra de LG. Captura nativa a través del propio inspector del televisor, no una
+foto. Hearth es un proyecto aparte — este repositorio es lo que hace que un televisor de
+2018 vaya lo bastante fluido para disfrutarlo.</sub>
+
 Casi todos los proyectos de este tipo apuntan a 2019 en adelante. [LGlow](https://github.com/IrvingGuerra/lglow),
 que sería la opción obvia, excluye explícitamente 2018 porque reemplaza el inicio a pantalla
 completa (`com.webos.app.fullhome`) que llegó con webOS 4.5 — los de 2018 no lo tienen. Este
@@ -146,6 +153,20 @@ Para confirmar que funcionó, comprueba que `surface-manager` arrancó **despué
 sm=$(pgrep -x surface-manager)
 echo $(( $(awk '{print $22}' /proc/$sm/stat) / $(getconf CLK_TCK) ))s
 ```
+
+### Capturas de pantalla limpias
+
+`/dev/fb0` está a ceros: la interfaz se compone por hardware y no pasa por ahí, y en webOS 4
+no existe `com.webos.service.capture`. Pero las apps web exponen un endpoint de Chrome
+DevTools en el puerto **9998**, así que se puede sacar un PNG perfecto de cualquiera de ellas:
+
+```sh
+ssh -f -N -L 19998:127.0.0.1:9998 root@<IP-DEL-TV>
+curl -s http://127.0.0.1:19998/json/list        # localiza el id de la página
+# luego envía Page.captureScreenshot por el WebSocket de esa página
+```
+
+La captura del principio de este README se hizo así.
 
 ### `luna-send` falla en silencio sin stdin
 
