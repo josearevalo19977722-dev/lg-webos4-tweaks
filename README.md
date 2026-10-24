@@ -344,8 +344,14 @@ from `/var/lib/webosbrew/init.d/` and reboot.
 ## Home screen
 
 This repo doesn't ship a launcher; it makes room for one and lets you bind the
-buttons to it. Two that run on webOS 4:
+buttons to it. Three that run on webOS 4:
 
+- [Aurora](https://github.com/josearevalo19977722-dev/lg_aurora) is the
+  launcher I went on to write for this television, so it is the one these
+  tweaks were shaped around. It draws on the first frame with no network
+  request, comes as a full screen and as an overlay bar, and installs with one
+  command. Note that **its installer already includes the tweaks in this
+  repo** — install one or the other, not both.
 - [Hearth](https://github.com/rudra-avatar/webos-custom-launcher) builds for
   Chrome 53, so it runs here even though it's only tested from webOS 7 upward.
   Its own "make this the default instead of LG Home" option does **not** work on

@@ -353,8 +353,14 @@ no: es un servicio independiente. Borra el script culpable de
 ## Pantalla de inicio
 
 Este repositorio no incluye ningún launcher: hace sitio para uno y te deja
-atarle los botones. Dos que funcionan en webOS 4:
+atarle los botones. Tres que funcionan en webOS 4:
 
+- [Aurora](https://github.com/josearevalo19977722-dev/lg_aurora) es el launcher
+  que acabé escribiendo para este televisor, así que es el que tiene en cuenta
+  estos ajustes. Se dibuja en el primer fotograma sin una sola petición de red,
+  viene a pantalla completa y como barra superpuesta, y se instala con un solo
+  comando. Ojo: **su instalador ya incluye los ajustes de este repositorio**
+  — instala uno u otro, no los dos.
 - [Hearth](https://github.com/rudra-avatar/webos-custom-launcher) se compila
   para Chrome 53, así que funciona aquí aunque solo esté probado de webOS 7 en
   adelante. Su opción de "hacerlo el inicio por defecto" **no** funciona en
